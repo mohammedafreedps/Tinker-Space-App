@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter/material.dart';
 import 'package:tinkerspace/consts/Colors.dart';
 import 'package:tinkerspace/consts/Values.dart';
@@ -30,7 +30,9 @@ class _OneTimeWelcomePageState extends State<OneTimeWelcomePage> {
         height: double.infinity,
         color: PrimaryColor,
         child: Center(
-          child: cusText('Welcome',color: SecondaryColor,fontsize: udv1Fontsize,fontweight: bold,),
+          child: Animate(
+            effects: [FadeEffect(delay: Duration(milliseconds: 500))],
+            child: cusText('Welcome',color: SecondaryColor,fontsize: udv1Fontsize,fontweight: bold,)),
         ),
       ),
     );

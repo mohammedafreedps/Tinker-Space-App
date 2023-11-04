@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tinkerspace/consts/Colors.dart';
 import 'package:tinkerspace/consts/Values.dart';
 import 'package:tinkerspace/pages/HomePage.dart';
+import 'package:tinkerspace/utils/UrlLaucher.dart';
 import 'package:tinkerspace/utils/navigateFunction/pushNavigate.dart';
 import 'package:tinkerspace/widgets/cusButton.dart';
 import 'package:tinkerspace/widgets/cusText.dart';
@@ -21,7 +22,9 @@ class FirstTimePage extends StatelessWidget {
           children: [
             cusText('First Time?',fontsize: udv1Fontsize,color: SecondaryColor,fontweight: bold,),
             SizedBox(height: 150,),
-            cusButton(udvsmallbuttonwidth, udvsmallbuttonheight, 'YES',fontsize: udvsmallbuttonfontsize,buttonfontcolor: PrimaryColor,color: SecondaryColor,),
+            cusButton(udvsmallbuttonwidth, udvsmallbuttonheight, 'YES',fontsize: udvsmallbuttonfontsize,buttonfontcolor: PrimaryColor,color: SecondaryColor,toperform:(){
+              pushReplaceNavigate(context, HomePage());
+              urlLauncher(FirstTimeUrl);} ,),
             SizedBox(height: 50,),
             cusButton(udvsmallbuttonwidth, udvsmallbuttonheight, 'NO',fontsize: udvsmallbuttonfontsize,buttonfontcolor: PrimaryColor,color: SecondaryColor,toperform: (){pushReplaceNavigate(context, HomePage());},)
           ],
