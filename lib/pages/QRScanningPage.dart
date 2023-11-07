@@ -34,8 +34,6 @@ class _QRScannerPageState extends State<QRScannerPage> {
         if (result == null) {
           result = scanData;
           showAlertDialog(context, 'Launch or Save', result!.code.toString(),'Save','Launch');
-          // popNavigate(context);
-          print('$result berrierdfadsfa valeu');
         }
       });
     });

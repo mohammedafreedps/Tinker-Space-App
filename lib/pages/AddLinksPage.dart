@@ -50,7 +50,6 @@ class _AddLinkPageState extends State<AddLinkPage> {
     double _screenHeight = double.infinity;
     setState(() {
       _screenHeight = MediaQuery.of(context).size.height;
-      print(_screenHeight);
     });
     return Scaffold(
       body: SingleChildScrollView(

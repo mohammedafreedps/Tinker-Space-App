@@ -122,7 +122,6 @@ class _LinkListPageState extends State<LinkListPage> {
                                     child: GestureDetector(
                                       onLongPress: () { 
                                         showAlertDialog(context, 'Do you want to',urlInstance.Urls,index: index,delete:  _deleteLinks,rebuild:  _getAllTasks,'Delete','Launch');
-                                        print('longpress initiated');
                                       },
                                       child: cusButton(
                                         double.infinity,
