@@ -106,32 +106,37 @@ class _LinkListPageState extends State<LinkListPage> {
                           left: pagePadding, right: pagePadding, top: 40),
                       child: SizedBox(
                         height: 700,
-                        child: ListView.builder(
-                          
-                            itemCount: allResults.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              URLS urlInstance = allResults[index];
-                              return Animate(
-                                effects: [FadeEffect(duration: Duration(milliseconds: 100*index))],
-                                child: Padding(
-                                  padding: const EdgeInsets.only(bottom: 20),
-                                  child: GestureDetector(
-                                    onLongPress: () { 
-                                      showAlertDialog(context, 'Do you want to',urlInstance.Urls,index: index,delete:  _deleteLinks,rebuild:  _getAllTasks,'Delete','Launch');
-                                      print('longpress initiated');
-                                    },
-                                    child: cusButton(
-                                      double.infinity,
-                                      udvbigbuttonheight,
-                                      urlInstance.title,
-                                      color: SecondaryColor,
-                                      buttonfontcolor: PrimaryColor,
-                                      fontsize: udvbigbuttonfontsize,
+                        child: NotificationListener(
+                          onNotification: (OverscrollIndicatorNotification overscroll){
+                            overscroll.disallowIndicator();
+                            return true;
+                          },
+                          child: ListView.builder(
+                              itemCount: allResults.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                URLS urlInstance = allResults[index];
+                                return Animate(
+                                  effects: [FadeEffect(duration: Duration(milliseconds: 300*index))],
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(bottom: 20),
+                                    child: GestureDetector(
+                                      onLongPress: () { 
+                                        showAlertDialog(context, 'Do you want to',urlInstance.Urls,index: index,delete:  _deleteLinks,rebuild:  _getAllTasks,'Delete','Launch');
+                                        print('longpress initiated');
+                                      },
+                                      child: cusButton(
+                                        double.infinity,
+                                        udvbigbuttonheight,
+                                        urlInstance.title,
+                                        color: SecondaryColor,
+                                        buttonfontcolor: PrimaryColor,
+                                        fontsize: udvbigbuttonfontsize,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              );
-                            }),
+                                );
+                              }),
+                        ),
                       ),
                     )
                   ],
